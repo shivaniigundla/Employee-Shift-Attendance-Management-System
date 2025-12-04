@@ -1,0 +1,6 @@
+<h2>Available Shifts</h2>
+<ul>
+ <li *ngFor="let s of shifts">
+   {{ s.start }} → {{ s.end }} (Required: {{ s.requiredEmployees }})
+ </li>
+</ul>
