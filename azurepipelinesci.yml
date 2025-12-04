@@ -1,0 +1,22 @@
+trigger:
+- main
+
+pool:
+  vmImage: "ubuntu-latest"
+
+steps:
+- task: DotNetCoreCLI@2
+  inputs:
+    command: restore
+    projects: "backend/SmartShift.Api/SmartShift.Api.csproj"
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: build
+    projects: "backend/SmartShift.Api/SmartShift.Api.csproj"
+
+- task: AngularCLI@1
+  inputs:
+    command: "build"
+    projectDir: "frontend/smartshift-ui"
+    arguments: "--configuration production"
